@@ -27,12 +27,6 @@ Pedro Cerqueira     | [pedrorvc](https://github.com/pedrorvc)   | Python, yaml, 
 
 ### Team 2
 
-<<<<<<< HEAD
-### Team "doesn't grok unit tests"
-Name                | GitHub profile                            | What knowledge I bring to the group
---------------------|-------------------------------------------|------------------------------------
-Justin Payne        | [crashfrog](https://github.com/crashfrog) | Python, cloud, semver, Hypothesis framework for unit testing in Python
-=======
 Name                | GitHub profile                       | What knowledge I bring to the group
 --------------------|--------------------------------------|------------------------------------
 Amit Yadav            | [ay-amityadav](https://github.com/ay-amityadav)  | Python, git (basic)
@@ -42,4 +36,3 @@ Amit Yadav            | [ay-amityadav](https://github.com/ay-amityadav)  | Pytho
 Name                | GitHub profile                            | What knowledge I bring to the group
 --------------------|-------------------------------------------|------------------------------------
 Justin Payne        | [crashfrog](https://github.com/crashfrog) | Python, cloud, semver, Hypothesis framework for unit testing in Python
->>>>>>> 1c618a9daff1d50d192655a44e5a02c4a76c3a48
