@@ -21,9 +21,22 @@ jobs:
     steps:
       - name: install kraken2
         run: conda create -n kraken2 -c conda-forge -c bioconda kraken2
+      - uses: actions/checkout@v2
+        with:
+          repository: broadinstitute/viral-classify
+          path: viral-classify
       - name: test kraken2
         run: |
          export PATH=$CONDA/envs/kraken2/bin:$PATH
          which kraken2
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/input/TestSplitReads/in.fastq ./
+         kraken2-build --help
+         kraken2-build --version
+         kraken2-build --build --db db
+         kraken2-inspect --help
+         kraken2-inspect --version
+         kraken2-inspect --db db
          kraken2 --version
          kraken2 --help
+         kraken2 --db db in.fastq
