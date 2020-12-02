@@ -30,7 +30,7 @@ jobs:
          export PATH=$CONDA/envs/kraken2/bin:$PATH
          which kraken2
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
-         mv $GITHUB_WORKSPACE/viral-classify/test/input/input/TestSplitReads/in.fastq ./
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
          kraken2-build --help
          kraken2-build --version
          kraken2-build --build --db db
