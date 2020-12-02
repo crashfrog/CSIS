@@ -39,4 +39,5 @@ jobs:
          kraken2-inspect --db db
          kraken2 --version
          kraken2 --help
-         kraken2 --db db in.fastq
+         kraken2 --db db --report report.txt --report-zero-counts in.fastq
+         grep "root" report.txt
