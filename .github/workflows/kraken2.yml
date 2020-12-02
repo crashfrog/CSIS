@@ -24,7 +24,6 @@ jobs:
       - name: test kraken2
         run: |
          export PATH=$CONDA/envs/kraken2/bin:$PATH
-         cd $GITHUB_WORKSPACE/kraken2
          which kraken2
          kraken2 --version
          kraken2 --help
