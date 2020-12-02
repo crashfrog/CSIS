@@ -19,6 +19,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: apt
+        run:  sudo apt-get install --no-install-recommends tree 
       - name: install depends
         run: conda create -n kraken2 -c conda-forge -c bioconda kraken2
       # Checks-out kraken2 under $GITHUB_WORKSPACE, so your job can access it
