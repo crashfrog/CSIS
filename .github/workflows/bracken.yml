@@ -24,11 +24,11 @@ jobs:
           path: viral-classify
       - name: test bracken
         run: |
+         export PATH=$CONDA/envs/bracken/bin:$PATH
          bracken-build --help
          bracken-build --version
          bracken --help
          bracken --version
-         export PATH=$CONDA/envs/kraken2/bin:$PATH
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
          kraken2-build --build --db db
