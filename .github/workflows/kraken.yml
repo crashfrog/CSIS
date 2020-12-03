@@ -41,4 +41,18 @@ jobs:
          which kraken
          kraken --version
          kraken --help        
-         kraken --db db in.fastq
+         kraken --db db in.fastq > kraken.out
+      - name: Test kraken-report
+        run: |
+         which kraken-report
+         kraken-report --version
+         kraken-report --help        
+         kraken-report --db db --show-zeros kraken.out > kraken.report
+         grep "root" kraken.report
+      - name: Test kraken-mpa-report
+        run: |
+         which kraken-mpa-report
+         kraken-mpa-report --version
+         kraken-mpa-report --help        
+         kraken-mpa-report --db db --show-zeros kraken.out > kraken.mpa-report
+         grep "root" kraken.mpa-report
