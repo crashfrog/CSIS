@@ -55,5 +55,4 @@ jobs:
          kraken-mpa-report --version
          kraken-mpa-report --help        
          kraken-mpa-report --db db --show-zeros kraken.out > kraken.mpa-report
-         cat kraken.mpa-report
-         grep "root" kraken.mpa-report
+         grep "d__Viruses" kraken.mpa-report
