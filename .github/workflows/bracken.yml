@@ -1,3 +1,5 @@
+
+
 name: bracken
 
 on:
@@ -15,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: install bracken
-        run: conda create -n braken kraken2 -c conda-forge -c bioconda bracken
+        run: conda create -n bracken -c conda-forge -c bioconda bracken kraken2
       - uses: actions/checkout@v2
         with:
           repository: broadinstitute/viral-classify
