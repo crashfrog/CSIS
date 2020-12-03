@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: install kraken
-        run: conda create -n kraken -c bioconda kraken
+        run: conda create -y -n kraken -conda-forge -c bioconda kraken
       - uses: actions/checkout@v2
         with:
           repository: broadinstitute/viral-classify
@@ -37,7 +37,7 @@ jobs:
          
          kraken-build --help
          kraken-build --version
-         kraken-build --build --kmer-len 11 --db db
+         kraken-build --build --kmer-len 11 --minimizer-len 5 --db db
          
          #kraken2-inspect --help
          #kraken2-inspect --version
