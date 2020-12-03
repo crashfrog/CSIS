@@ -1,0 +1,38 @@
+name: bracken
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: install bracken
+        run: conda create -n braken kraken2 -c conda-forge -c bioconda bracken
+      - uses: actions/checkout@v2
+        with:
+          repository: broadinstitute/viral-classify
+          path: viral-classify
+      - name: test bracken
+        run: |
+         bracken-build --help
+         bracken-build --version
+         bracken --help
+         bracken --version
+         export PATH=$CONDA/envs/kraken2/bin:$PATH
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
+         kraken2-build --build --db db
+         bracken-build -d db
+         kraken2 --db db --report report.txt in.fastq
+         bracken -d db -i report.txt -o report.bracken
+         grep "root" report.bracken
+
+
