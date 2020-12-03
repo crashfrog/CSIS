@@ -19,23 +19,25 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: apt
-        run:  sudo apt-get install --no-install-recommends tree 
-      - name: install depends
+      - name: install kraken2
         run: conda create -n kraken2 -c conda-forge -c bioconda kraken2
-      # Checks-out kraken2 under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          repository: DerrickWood/kraken2
-          path: kraken2
-      - name: directory structure
-        run: tree -d $GITHUB_WORKSPACE
+          repository: broadinstitute/viral-classify
+          path: viral-classify
       - name: test kraken2
         run: |
          export PATH=$CONDA/envs/kraken2/bin:$PATH
-         export PATH=$GITHUB_WORKSPACE/kraken2/bin:$PATH
-         cd $GITHUB_WORKSPACE/kraken2
          which kraken2
-         which makeblastdb
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
+         kraken2-build --help
+         kraken2-build --version
+         kraken2-build --build --db db
+         kraken2-inspect --help
+         kraken2-inspect --version
+         kraken2-inspect --db db
          kraken2 --version
          kraken2 --help
+         kraken2 --db db --report report.txt --report-zero-counts in.fastq
+         grep "root" report.txt
