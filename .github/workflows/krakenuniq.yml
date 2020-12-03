@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Install krakenuniq
-        run: conda create -y -n krakenuniq -c conda-forge -c bioconda kraken
+        run: conda create -y -n krakenuniq -c conda-forge -c bioconda krakenuniq
       - uses: actions/checkout@v2
         with:
           repository: broadinstitute/viral-classify
