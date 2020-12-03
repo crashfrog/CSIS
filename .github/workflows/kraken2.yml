@@ -20,7 +20,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: install kraken2
-        run: conda create -n kraken2 -c conda-forge -c bioconda kraken2
+        run: conda create -y -n kraken2 -c conda-forge -c bioconda kraken2
       - uses: actions/checkout@v2
         with:
           repository: broadinstitute/viral-classify
@@ -28,9 +28,9 @@ jobs:
       - name: test kraken2
         run: |
          export PATH=$CONDA/envs/kraken2/bin:$PATH
-         which kraken2
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
+         which kraken2
          kraken2-build --help
          kraken2-build --version
          kraken2-build --build --db db
