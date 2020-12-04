@@ -22,7 +22,7 @@ jobs:
           path: viral-classify
       - name: Staging
         run: |
-          echo "${CONDA}/envs/kraken/bin" >> $GITHUB_PATH
+          echo "${CONDA}/envs/bracken/bin" >> $GITHUB_PATH
           mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/db ./
           mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/*.fastq ./
       - name: Test bracken-build
