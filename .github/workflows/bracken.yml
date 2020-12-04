@@ -29,7 +29,7 @@ jobs:
          bracken --version
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
-         kraken2-build --kmer-len 11 --minimizer-len 5 --build --db db
+         kraken2-build --kmer-len 15 --minimizer-len 9 --build --db db
          bracken-build -d db
          kraken2 --db db --report report.txt in.fastq
          bracken -d db -i report.txt -o report.bracken
