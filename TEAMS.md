@@ -25,14 +25,10 @@ Rafael Mamede       | [rfm-targa](https://github.com/rfm-targa) | Python, yaml, 
 Pedro Cerqueira     | [pedrorvc](https://github.com/pedrorvc)   | Python, yaml, chewBBACA main dev
 
 
-### Team 2
+### Team 2 - *All the Krakens*
 
 Name                | GitHub profile                       | What knowledge I bring to the group
 --------------------|--------------------------------------|------------------------------------
-Amit Yadav            | [ay-amityadav](https://github.com/ay-amityadav)  | Python, git (basic)
-
-
-### Team "doesn't grok unit tests"
-Name                | GitHub profile                            | What knowledge I bring to the group
---------------------|-------------------------------------------|------------------------------------
+Robert Petit        | [rpetit3](https://github.com/rpetit3) | Python, gitlab-ci, debugging
 Justin Payne        | [crashfrog](https://github.com/crashfrog) | Python, cloud, semver, Hypothesis framework for unit testing in Python
+Amit Yadav            | [ay-amityadav](https://github.com/ay-amityadav)  | Python, git (basic)
