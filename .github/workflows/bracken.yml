@@ -25,10 +25,10 @@ jobs:
          export PATH=$CONDA/envs/bracken/bin:$PATH
          bracken-build -h
          bracken -h
-         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
-         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db/library/Viruses/partial_pan-viral-9seqs-with-human-random-subset.fna ./in.fna
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/db ./
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/*.fastq ./
          kraken2-build --build --db db
          bracken-build -d db
-         kraken2 --db db --report report.txt in.fna
+         kraken2 --db db --report report.txt *.fastq
          bracken -d db -i report.txt -o report.bracken
          grep "root" report.bracken
