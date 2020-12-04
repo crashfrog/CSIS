@@ -26,9 +26,9 @@ jobs:
          bracken-build -h
          bracken -h
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
-         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
-         kraken2-build --kmer-len 15 --minimizer-len 9 --build --db db
+         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db/library/Viruses/partial_pan-viral-9seqs-with-human-random-subset.fna ./in.fna
+         kraken2-build --build --db db
          bracken-build -d db
-         kraken2 --db db --report report.txt in.fastq
+         kraken2 --db db --report report.txt in.fna
          bracken -d db -i report.txt -o report.bracken
          grep "root" report.bracken
