@@ -14,22 +14,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: install bracken
-        run: conda create -y -n bracken -c conda-forge -c bioconda bracken kraken2
+      - name: Install bracken
+        run: conda create -y -n bracken -c conda-forge -c bioconda bracken
       - uses: actions/checkout@v2
         with:
           repository: broadinstitute/viral-classify
           path: viral-classify
-      - name: test bracken
+      - name: Staging
         run: |
-         export PATH=$CONDA/envs/bracken/bin:$PATH
+          echo "${CONDA}/envs/kraken/bin" >> $GITHUB_PATH
+          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/db ./
+          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/*.fastq ./
+      - name: Test bracken-build
+        run: |
          bracken-build -h
-         bracken -h
-         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/db ./
-         mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsSimple/*.fastq ./
          kraken2-build --build --db db
          bracken-build -d db
+      - name: Test bracken
+        run: |
+         bracken -h
          kraken2 --db db --report report.txt *.fastq
          bracken -d db -i report.txt -o report.bracken
-         cat report.bracken
-         grep "root" report.bracken
+         grep "ebolavirus" report.bracken
