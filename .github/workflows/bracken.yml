@@ -31,4 +31,5 @@ jobs:
          bracken-build -d db
          kraken2 --db db --report report.txt *.fastq
          bracken -d db -i report.txt -o report.bracken
+         cat report.bracken
          grep "root" report.bracken
