@@ -23,10 +23,8 @@ jobs:
       - name: test bracken
         run: |
          export PATH=$CONDA/envs/bracken/bin:$PATH
-         bracken-build --help
-         bracken-build --version
-         bracken --help
-         bracken --version
+         bracken-build -h
+         bracken -h
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestMetagenomicsViralMix/db ./
          mv $GITHUB_WORKSPACE/viral-classify/test/input/TestSplitReads/in.fastq ./
          kraken2-build --kmer-len 15 --minimizer-len 9 --build --db db
